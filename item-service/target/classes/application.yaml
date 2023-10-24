@@ -2,7 +2,7 @@ server:
   port: 8081
 spring:
   application:
-    name: hm-service #微服务名称
+    name: item-service #微服务名称
   profiles:
     active: dev
   datasource:
@@ -10,6 +10,9 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: ${hm.db.pw}
+  cloud:
+    nacos:
+      server-addr: 192.168.61.128:8848
 mybatis-plus:
   configuration:
     default-enum-type-handler: com.baomidou.mybatisplus.core.handlers.MybatisEnumTypeHandler
@@ -27,8 +30,8 @@ logging:
 knife4j:
   enable: true
   openapi:
-    title: 黑马商城接口文档
-    description: "黑马商城接口文档"
+    title: 黑马商城商品接口文档
+    description: "黑马商城商品接口文档"
     email: zhanghuyi@itcast.cn
     concat: 虎哥
     url: https://www.itcast.cn

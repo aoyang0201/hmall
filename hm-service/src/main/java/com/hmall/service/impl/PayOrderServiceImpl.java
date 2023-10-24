@@ -103,7 +103,8 @@ public class PayOrderServiceImpl extends ServiceImpl<PayOrderMapper, PayOrder> i
             throw new BizIllegalException("订单已关闭");
         }
         // 5.旧单已经存在，判断支付渠道是否一致
-        if (!StringUtils.equals(oldOrder.getPayChannelCode(), applyDTO.getPayChannelCode())) {
+        if (!StringUtils.equals(oldOrder.getPayChannelCode(),
+                applyDTO.getPayChannelCode())) {
             // 支付渠道不一致，需要重置数据，然后重新申请支付单
             PayOrder payOrder = buildPayOrder(applyDTO);
             payOrder.setId(oldOrder.getId());
