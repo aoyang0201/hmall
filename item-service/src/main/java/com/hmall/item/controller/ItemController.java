@@ -44,6 +44,7 @@ public class ItemController {
     @ApiOperation("根据id查询商品")
     @GetMapping("{id}")
     public ItemDTO queryItemById(@PathVariable("id") Long id) {
+        System.out.println("查询了");
         return BeanUtils.copyBean(itemService.getById(id), ItemDTO.class);
     }
 
